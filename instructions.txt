@@ -1,0 +1,420 @@
+genial — si ya tenés el proyecto y librerías, te dejo el paquete mínimo de archivos + estilo para que tu CV tome el look “oscuro + glass + acentos teal/cobre (Futurismo Sensible)” y quede listo.
+Podés pegar estos bloques en Codex (VS Code) y que cree/actualice los archivos.
+
+0) Paleta y concepto visual
+
+Fondo: petroleum dark con ligero ruido y gradientes sutiles.
+
+Tarjetas: glass (blur + borde sutil + brillo suave).
+
+Acentos: Teal #7DAA92 y Cobre #C27C53.
+
+Radio grande (rounded-2xl), sombras suaves y micro-animaciones en hover.
+
+1) Tailwind: extiende colores/animaciones
+
+tailwind.config.ts (agregá/mergeá el theme.extend)
+
+// tailwind.config.ts
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  darkMode: ["class"],
+  content: ["./src/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        bg: {
+          DEFAULT: "#0F1716",
+          deep: "#0B1211",
+        },
+        petrol: "#2C4653",
+        graphite: "#1E1E1E",
+        teal: "#7DAA92",
+        copper: "#C27C53",
+        glass: "rgba(255,255,255,0.06)",
+        line: "rgba(255,255,255,0.12)",
+      },
+      boxShadow: {
+        soft: "0 10px 25px rgba(0,0,0,0.35)",
+        glow: "0 0 0 1px rgba(125,170,146,0.35), 0 10px 30px rgba(194,124,83,0.15)",
+      },
+      backdropBlur: {
+        xs: "2px",
+      },
+      borderRadius: {
+        xl2: "1rem",
+      },
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;
+
+2) Global CSS: fondo + utilidades “glass”
+
+app/globals.css (añadí esto al final si ya existe)
+
+:root { color-scheme: dark; }
+html, body, #__next { height: 100%; }
+
+body {
+  background: radial-gradient(60% 60% at 80% 20%, rgba(125,170,146,0.10) 0%, transparent 60%),
+              radial-gradient(50% 60% at 10% 80%, rgba(194,124,83,0.10) 0%, transparent 60%),
+              #0F1716;
+}
+
+@layer utilities {
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(8px);
+  }
+  .ring-acc {
+    box-shadow: 0 0 0 1px rgba(125,170,146,0.35), 0 0 0 2px rgba(194,124,83,0.20) inset;
+  }
+  .text-grad {
+    background: linear-gradient(90deg, #7DAA92, #C27C53);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+}
+
+3) Utilidad cn
+
+src/lib/utils.ts
+
+export function cn(...classes: (string | undefined | false)[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
+4) Datos del CV (contenido editable)
+
+src/data/cv.ts
+
+export const profile = {
+  name: "Jorge Pulido",
+  role: "Estudiante de Marketing Digital",
+  summary:
+    "Soy un profesional en formación con experiencia en atención al cliente, ventas y gestión administrativa, complementada con conocimientos en marketing digital y herramientas de inteligencia artificial. Me destaco por organizar procesos, comunicar de forma clara y aplicar tecnología para optimizar el trabajo diario. Busco integrar mi perfil comercial con estrategia, innovación y mejora continua.",
+  location: "Buenos Aires, Argentina",
+  links: [
+    { label: "Instagram", href: "https://instagram.com/iarte.1" },
+    // { label: "LinkedIn", href: "" },
+    // { label: "Portafolio", href: "" },
+  ],
+};
+
+export const experience = [
+  {
+    company: "Tienda Nova Caballito",
+    role: "Vendedor y Encargado Administrativo",
+    period: "2023 – Presente",
+    points: [
+      "Atención al cliente en tienda de productos saludables, sin TACC y keto.",
+      "Comunicación y seguimiento con proveedores, control de presupuestos y actualización de precios.",
+      "Organización de pedidos, control de stock y reposición.",
+      "Mejora de visibilidad en góndola y experiencia de compra.",
+      "Apoyo en tareas administrativas y comunicación interna del equipo.",
+    ],
+  },
+  {
+    company: "Lionbridge, INC.",
+    role: "Intérprete Inglés – Español",
+    period: "2021 – Presente",
+    points: [
+      "Interpretación telefónica para clientes en Estados Unidos.",
+      "Facilitación de comunicación efectiva entre hablantes de inglés y español.",
+      "Precisión lingüística y sensibilidad cultural en diversos contextos.",
+    ],
+  },
+  {
+    company: "iarte",
+    role: "Community Manager",
+    period: "Abril 2025 – Presente",
+    points: [
+      "Contenido informativo y visual para aumentar visibilidad y engagement.",
+      "Estrategias basadas en insights y métricas.",
+      "Apoyo en campañas segmentadas en Instagram.",
+    ],
+  },
+];
+
+export const education = [
+  {
+    school: "Coderhouse",
+    title: "Diplomatura en Marketing Digital (en curso)",
+    details: [
+      "Análisis de datos, automatización y estrategia digital.",
+      "Community Manager, Customer Experience, Habilidades Blandas.",
+    ],
+  },
+  {
+    school: "Two Hour Writer – Dan Koe",
+    title: "Copywriting Skill",
+    details: [
+      "Ecosistema de contenido en Notion y escritura estratégica.",
+    ],
+  },
+];
+
+export const skills = {
+  profesionales: [
+    "Fundamentos de Marketing Digital",
+    "Manejo de Redes Sociales",
+    "Creación de Contenido",
+    "Desarrollo de Marca",
+    "Meta Ads / Business Suite",
+    "Canva, CapCut, ChatGPT, Notion",
+    "Inglés Avanzado",
+  ],
+  personales: [
+    "Creatividad",
+    "Comunicación asertiva",
+    "Resolución de problemas",
+    "Pensamiento crítico",
+  ],
+};
+
+5) Componentes UI (glass + badges + timeline)
+
+components/Card.tsx
+
+import { cn } from "@/src/lib/utils";
+
+export default function Card({
+  className,
+  children,
+}: React.PropsWithChildren<{ className?: string }>) {
+  return (
+    <div
+      className={cn(
+        "glass rounded-2xl p-6 shadow-soft hover:shadow-glow transition-shadow duration-300 ease-smooth",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+
+
+components/Badge.tsx
+
+export default function Badge({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full border border-line bg-glass/60 px-3 py-1 text-sm text-white/90">
+      {children}
+    </span>
+  );
+}
+
+
+components/Section.tsx
+
+export function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="text-xl font-semibold tracking-wide text-white/90">
+      <span className="text-grad">{children}</span>
+    </h2>
+  );
+}
+
+export function SectionWrap({ children }: { children: React.ReactNode }) {
+  return <div className="space-y-4">{children}</div>;
+}
+
+
+components/TimelineItem.tsx
+
+export default function TimelineItem({
+  title,
+  subtitle,
+  period,
+  points,
+}: {
+  title: string;
+  subtitle: string;
+  period: string;
+  points: string[];
+}) {
+  return (
+    <div className="relative pl-6">
+      <div className="absolute left-0 top-1 h-3 w-3 rounded-full bg-teal shadow-glow" />
+      <h3 className="font-medium text-white/95">{title}</h3>
+      <div className="text-white/70 text-sm">{subtitle} • {period}</div>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-white/80 text-sm">
+        {points.map((p, i) => <li key={i}>{p}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+6) Página principal (usa los datos + componentes)
+
+app/page.tsx
+
+import Card from "@/components/Card";
+import Badge from "@/components/Badge";
+import TimelineItem from "@/components/TimelineItem";
+import { SectionTitle, SectionWrap } from "@/components/Section";
+import { profile, experience, education, skills } from "@/src/data/cv";
+
+export default function Home() {
+  return (
+    <main className="mx-auto max-w-5xl px-6 py-12 md:py-16">
+      {/* Header */}
+      <header className="mb-8 md:mb-12">
+        <div className="mb-2 text-sm text-white/60">{profile.location}</div>
+        <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+          <span className="text-grad">{profile.name}</span>
+        </h1>
+        <p className="mt-2 text-white/80">{profile.role}</p>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {profile.links.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="text-sm text-white/80 hover:text-white/95 underline/50 hover:underline"
+              target="_blank"
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
+      </header>
+
+      {/* Grid */}
+      <div className="grid gap-6 md:grid-cols-3">
+        {/* Perfil / Resumen */}
+        <Card className="md:col-span-2">
+          <SectionWrap>
+            <SectionTitle>Perfil</SectionTitle>
+            <p className="text-white/85 leading-relaxed">{profile.summary}</p>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              <Badge>Ventas</Badge>
+              <Badge>Administración</Badge>
+              <Badge>Marketing Digital</Badge>
+              <Badge>IA aplicada</Badge>
+            </div>
+          </SectionWrap>
+        </Card>
+
+        {/* Habilidades */}
+        <Card>
+          <SectionWrap>
+            <SectionTitle>Habilidades</SectionTitle>
+            <div>
+              <h4 className="mb-1 text-white/90 font-medium">Profesionales</h4>
+              <ul className="list-disc pl-5 text-white/80 text-sm space-y-1">
+                {skills.profesionales.map((s, i) => <li key={i}>{s}</li>)}
+              </ul>
+            </div>
+            <div>
+              <h4 className="mb-1 text-white/90 font-medium">Personales</h4>
+              <ul className="list-disc pl-5 text-white/80 text-sm space-y-1">
+                {skills.personales.map((s, i) => <li key={i}>{s}</li>)}
+              </ul>
+            </div>
+          </SectionWrap>
+        </Card>
+
+        {/* Experiencia */}
+        <Card className="md:col-span-2">
+          <SectionWrap>
+            <SectionTitle>Experiencia</SectionTitle>
+            <div className="space-y-5">
+              {experience.map((e, i) => (
+                <TimelineItem
+                  key={i}
+                  title={e.company}
+                  subtitle={e.role}
+                  period={e.period}
+                  points={e.points}
+                />
+              ))}
+            </div>
+          </SectionWrap>
+        </Card>
+
+        {/* Educación */}
+        <Card>
+          <SectionWrap>
+            <SectionTitle>Educación</SectionTitle>
+            <div className="space-y-4">
+              {education.map((ed, i) => (
+                <div key={i} className="border-b border-line pb-3 last:border-0">
+                  <div className="text-white/95 font-medium">{ed.school}</div>
+                  <div className="text-white/75 text-sm">{ed.title}</div>
+                  <ul className="mt-2 list-disc pl-5 text-white/80 text-sm space-y-1">
+                    {ed.details.map((d, j) => <li key={j}>{d}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </SectionWrap>
+        </Card>
+      </div>
+
+      {/* Footer */}
+      <footer className="mt-10 text-center text-white/50 text-xs">
+        Hecho con Next.js + Tailwind — Acentos <span className="text-teal">teal</span> y <span className="text-copper">cobre</span>.
+      </footer>
+    </main>
+  );
+}
+
+7) Layout (fuentes y metadatos)
+
+app/layout.tsx (usa fuentes del sistema o agrega next/font si querés)
+
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "CV — Jorge Pulido",
+  description: "Perfil, experiencia, educación y habilidades.",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="es">
+      <body className="min-h-screen antialiased text-white bg-bg">
+        {children}
+      </body>
+    </html>
+  );
+}
+
+
+(Opcional: si querés Manrope o Inter, importá con next/font/google y aplicá la clase al <body>.)
+
+8) Cómo usar la imagen de referencia
+
+Guardá tu imagen en public/ref.jpg (o el nombre que prefieras).
+
+Si querés mostrar un header hero con la referencia tenue como textura:
+
+// ejemplo rápido dentro de <header>
+<div
+  className="relative -mx-6 mb-6 h-24 rounded-2xl overflow-hidden"
+  style={{
+    backgroundImage: "url(/ref.jpg)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    filter: "grayscale(100%) opacity(0.15)",
+  }}
+/>
+
+
+La idea es mantenerla muy sutil para no competir con el texto.
+
+9) Micro-interacciones (si ya tenés framer-motion)
+
+Podés envolver Card con un whileHover={{ y: -2 }} y transition={{ type: "spring", stiffness: 260, damping: 20 }} para un lift suave.
+
+O añadir un focus ring con la utilidad ring-acc en hover.

@@ -1,0 +1,237 @@
+:root {
+  --jorge-theme-bg:
+    radial-gradient(60% 60% at 80% 20%, rgba(23, 59, 63, 0.4) 0%, transparent 60%),
+    radial-gradient(50% 60% at 10% 80%, rgba(184, 110, 72, 0.35) 0%, transparent 65%),
+    #0c1415;
+  --jorge-card-bg: linear-gradient(180deg, rgba(23, 59, 63, 0.2), rgba(11, 20, 21, 0.55));
+  --jorge-card-border: rgba(255, 255, 255, 0.14);
+  --jorge-card-shadow: 0 18px 32px rgba(4, 9, 10, 0.45);
+  --jorge-card-shadow-hover: 0 0 0 1px rgba(23, 59, 63, 0.45), 0 20px 45px rgba(184, 110, 72, 0.18);
+  --jorge-gradient-text: linear-gradient(90deg, #173b3f, #b86e48);
+  --jorge-gradient-color: transparent;
+  --jorge-ring-shadow: 0 0 0 1px rgba(23, 59, 63, 0.42), 0 0 0 2px rgba(184, 110, 72, 0.28) inset;
+  --jorge-button-bg: linear-gradient(90deg, rgba(23, 59, 63, 0.94), rgba(184, 110, 72, 0.94));
+  --jorge-button-color: #0f1716;
+  --jorge-button-shadow-hover: 0 14px 35px rgba(23, 59, 63, 0.4);
+  --jorge-text-95: rgba(255, 255, 255, 0.95);
+  --jorge-text-90: rgba(255, 255, 255, 0.9);
+  --jorge-text-85: rgba(255, 255, 255, 0.85);
+  --jorge-text-80: rgba(255, 255, 255, 0.8);
+  --jorge-text-75: rgba(255, 255, 255, 0.75);
+  --jorge-text-70: rgba(255, 255, 255, 0.7);
+  --jorge-text-60: rgba(255, 255, 255, 0.6);
+  --jorge-text-50: rgba(255, 255, 255, 0.5);
+  --jorge-border-20: rgba(255, 255, 255, 0.2);
+  --jorge-border-15: rgba(255, 255, 255, 0.15);
+  --jorge-border-10: rgba(255, 255, 255, 0.1);
+  --jorge-surface-muted: rgba(255, 255, 255, 0.05);
+  --jorge-decoration-30: rgba(255, 255, 255, 0.3);
+  --jorge-link-color: rgba(255, 255, 255, 0.9);
+}
+
+.jorge-theme {
+  min-height: 100vh;
+  background: var(--jorge-theme-bg);
+  color: var(--jorge-text-90);
+}
+
+.jorge-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1.25rem 3rem;
+}
+
+@media (min-width: 640px) {
+  .jorge-wrapper {
+    padding: 2.5rem 1.5rem 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .jorge-wrapper {
+    padding: 3rem 1.5rem 4rem;
+  }
+}
+
+.jorge-card {
+  background: var(--jorge-card-bg);
+  border: 1px solid var(--jorge-card-border);
+  border-radius: 1.25rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 1.6rem);
+  box-shadow: var(--jorge-card-shadow);
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jorge-card:hover {
+  box-shadow: var(--jorge-card-shadow-hover);
+}
+
+.jorge-gradient-text {
+  background: var(--jorge-gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--jorge-gradient-color);
+}
+
+.jorge-ring {
+  box-shadow: var(--jorge-ring-shadow);
+}
+
+.jorge-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--jorge-button-bg);
+  color: var(--jorge-button-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.jorge-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--jorge-button-shadow-hover);
+}
+
+.jorge-button--floating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(20%, -55%);
+  padding: 0.45rem 1.05rem;
+  font-size: 0.7rem;
+  z-index: 20;
+  box-shadow: 0 10px 24px rgba(15, 23, 22, 0.35);
+}
+
+@media (min-width: 640px) {
+  .jorge-button--floating {
+    transform: translate(45%, -60%);
+    padding: 0.55rem 1.25rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* Override Tailwind slashed-opacity colors con variables reutilizables */
+.text-white\/95 {
+  color: var(--jorge-text-95) !important;
+}
+
+.text-white\/90 {
+  color: var(--jorge-text-90) !important;
+}
+
+.text-white\/85 {
+  color: var(--jorge-text-85) !important;
+}
+
+.text-white\/80 {
+  color: var(--jorge-text-80) !important;
+}
+
+.text-white\/75 {
+  color: var(--jorge-text-75) !important;
+}
+
+.text-white\/70 {
+  color: var(--jorge-text-70) !important;
+}
+
+.text-white\/60 {
+  color: var(--jorge-text-60) !important;
+}
+
+.text-white\/50 {
+  color: var(--jorge-text-50) !important;
+}
+
+.border-white\/20 {
+  border-color: var(--jorge-border-20) !important;
+}
+
+.border-white\/15 {
+  border-color: var(--jorge-border-15) !important;
+}
+
+.border-white\/10 {
+  border-color: var(--jorge-border-10) !important;
+}
+
+.bg-white\/5 {
+  background-color: var(--jorge-surface-muted) !important;
+}
+
+.decoration-white\/30 {
+  text-decoration-color: var(--jorge-decoration-30) !important;
+}
+
+.jorge-header {
+  transition: background 0.3s ease;
+}
+
+body.jorge-print {
+  --jorge-theme-bg: #ffffff;
+  --jorge-card-bg: linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.01));
+  --jorge-card-border: rgba(148, 163, 184, 0.45);
+  --jorge-card-shadow: none;
+  --jorge-card-shadow-hover: none;
+  --jorge-gradient-text: none;
+  --jorge-gradient-color: #111827;
+  --jorge-ring-shadow: 0 0 0 1px rgba(148, 163, 184, 0.45);
+  --jorge-button-bg: linear-gradient(90deg, #0f172a, #1f2937);
+  --jorge-button-color: #f8fafc;
+  --jorge-button-shadow-hover: none;
+  --jorge-text-95: rgba(17, 24, 39, 0.95);
+  --jorge-text-90: rgba(17, 24, 39, 0.9);
+  --jorge-text-85: rgba(17, 24, 39, 0.85);
+  --jorge-text-80: rgba(17, 24, 39, 0.8);
+  --jorge-text-75: rgba(17, 24, 39, 0.75);
+  --jorge-text-70: rgba(17, 24, 39, 0.7);
+  --jorge-text-60: rgba(17, 24, 39, 0.6);
+  --jorge-text-50: rgba(17, 24, 39, 0.5);
+  --jorge-border-20: rgba(148, 163, 184, 0.5);
+  --jorge-border-15: rgba(203, 213, 225, 0.55);
+  --jorge-border-10: rgba(226, 232, 240, 0.6);
+  --jorge-surface-muted: rgba(226, 232, 240, 0.65);
+  --jorge-decoration-30: rgba(71, 85, 105, 0.4);
+  --jorge-link-color: #1d4ed8;
+
+  background-color: #ffffff;
+  color: #111827;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body.jorge-print .jorge-wrapper {
+  padding: 2.5rem 2.25rem 3rem;
+}
+
+body.jorge-print .jorge-button {
+  display: none;
+}
+
+body.jorge-print a {
+  color: var(--jorge-link-color) !important;
+  text-decoration-color: rgba(37, 99, 235, 0.4) !important;
+}
+
+body.jorge-print .jorge-card:hover {
+  box-shadow: var(--jorge-card-shadow);
+}
+
+body.jorge-print .jorge-header {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.01)) !important;
+  box-shadow: none !important;
+}
+
+body.jorge-print .jorge-badge {
+  font-weight: 600;
+}
+
+body.jorge-print footer {
+  color: var(--jorge-text-60) !important;
+}
