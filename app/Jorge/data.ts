@@ -1,17 +1,27 @@
 export const profile = {
   name: "Jorge Pulido",
   role: "Estudiante de Marketing Digital",
+  meta: "Buenos Aires, Argentina · Inglés avanzado",
+  descriptor: "Ventas · Operaciones · IA aplicada a procesos",
   summary:
     "Profesional en formación que combina gestión operativa, ventas y marketing digital con el uso estratégico de la Inteligencia Artificial para optimizar procesos y crear soluciones digitales escalables. Co-creador del sistema GeStock, una plataforma desarrollada con IA para la gestión de stock, proveedores y pagos. Me destaco por mi enfoque analítico, capacidad de organización y visión tecnológica aplicada a la mejora continua.",
   location: "Buenos Aires, Argentina",
   links: [
-    { label: "Instagram", href: "https://instagram.com/iarte.1" },
+    { label: "Instagram", href: "https://instagram.com/jorgenomente" },
     // { label: "LinkedIn", href: "" },
     // { label: "Portafolio", href: "" },
   ],
 };
 
-export const experience = [
+type ExperienceItem = {
+  company: string;
+  role: string;
+  period: string;
+  points: string[];
+  highlight?: boolean;
+};
+
+export const experience: ExperienceItem[] = [
   {
     company: "Tienda Nova Caballito",
     role: "Coordinador de Ventas y Operaciones",
@@ -27,7 +37,6 @@ export const experience = [
     company: "Proyecto GeStock / GeStock Multitenant",
     role: "Co-diseñador y Gestor Operativo del Sistema",
     period: "2024 – Actualidad",
-    highlight: true,
     points: [
       "Desarrollo de un sistema integral para la gestión de proveedores, pagos y stock con Next.js, Supabase y Prisma, integrando IA en el diseño UX/UI, documentación y automatización de procesos.",
       "Diseño de arquitectura multi-tenant y base de datos relacional.",

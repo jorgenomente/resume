@@ -10,7 +10,7 @@ import { education, experience, profile, skills } from "./data";
 
 type Html2PdfType = typeof import("html2pdf.js")["default"];
 
-export default function JorgePage() {
+export default function PlantillaPage() {
   const html2pdfRef = useRef<Html2PdfType | null>(null);
   const colorMixFallback = useRef("rgba(161, 161, 161, 0.5)");
 
@@ -91,12 +91,12 @@ export default function JorgePage() {
 
   const handleDownload = useCallback(async () => {
     if (typeof window === "undefined") return;
-    const element = document.getElementById("jorge-cv");
+    const element = document.getElementById("plantilla-cv");
     if (!element) return;
 
     try {
       const html2pdf = await loadHtml2Pdf();
-      document.body.classList.add("jorge-print");
+      document.body.classList.add("plantilla-print");
       // Espera dos frames para permitir que el DOM aplique los estilos de impresión antes de renderizar.
       await new Promise<void>((resolve) => {
         requestAnimationFrame(() => {
@@ -106,7 +106,7 @@ export default function JorgePage() {
 
       const options = {
         margin: 0,
-        filename: "jorge-pulido-cv.pdf",
+        filename: "cv-plantilla.pdf",
         image: { type: "jpeg", quality: 0.98 },
         html2canvas: {
           scale: 2,
@@ -130,13 +130,13 @@ export default function JorgePage() {
     } catch (error) {
       console.error("No se pudo generar el PDF", error);
     } finally {
-      document.body.classList.remove("jorge-print");
+      document.body.classList.remove("plantilla-print");
     }
   }, [loadHtml2Pdf, removeUnsupportedColorMix]);
 
   return (
-    <main id="jorge-cv" className="flex w-full flex-col gap-8 pt-2 sm:pt-4">
-      <header className="jorge-header">
+    <main id="plantilla-cv" className="flex w-full flex-col gap-8 pt-2 sm:pt-4">
+      <header className="plantilla-header">
         <div className="relative flex flex-col gap-6 p-7 pt-12 sm:p-8 sm:pt-14 md:flex-row md:items-center md:gap-10">
           <div className="flex flex-1 flex-col gap-6">
             <div className="space-y-3">
@@ -147,20 +147,20 @@ export default function JorgePage() {
             </div>
             <div className="flex flex-wrap gap-4 text-sm">
               <a
-                href="mailto:jorgenomente@gmail.com"
+                href="mailto:correo@ejemplo.com"
                 className="flex items-center gap-2 text-[color:var(--ink-100)] transition-colors hover:text-[color:var(--ink-300)]"
               >
                 <span aria-hidden="true">📧</span>
-                <span>jorgenomente@gmail.com</span>
+                <span>correo@ejemplo.com</span>
               </a>
               <a
-                href="https://wa.me/541127725677"
+                href="https://wa.me/0000000000"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 text-[color:var(--ink-100)] transition-colors hover:text-[color:var(--ink-300)]"
               >
                 <span aria-hidden="true">📞</span>
-                <span>+54 11 2772 5677</span>
+                <span>+XX XX XXXX XXXX</span>
               </a>
               {profile.links.map((link) => (
                 <a
@@ -175,10 +175,10 @@ export default function JorgePage() {
               ))}
             </div>
           </div>
-          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl border border-[color:var(--ink-500)]/40 bg-[rgba(2,16,36,0.6)] jorge-ring sm:h-32 sm:w-32 md:h-40 md:w-40">
+          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl border border-[color:var(--ink-500)]/40 bg-[rgba(2,16,36,0.6)] plantilla-ring sm:h-32 sm:w-32 md:h-40 md:w-40">
             <Image
               src="/propic.png"
-              alt="Foto de Jorge Pulido"
+              alt="Foto de la persona"
               fill
               className="object-cover"
               sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 160px"
@@ -194,7 +194,7 @@ export default function JorgePage() {
         <Card className="md:col-span-2">
           <SectionWrap>
             <SectionTitle>Perfil</SectionTitle>
-            <div className="jorge-divider mt-3 pt-4 space-y-4">
+            <div className="plantilla-divider mt-3 pt-4 space-y-4">
               <p className="leading-relaxed text-[color:var(--text-0)] opacity-90">{profile.summary}</p>
               <div className="flex flex-wrap gap-2">
                 <Badge>Gestión operativa</Badge>
@@ -209,7 +209,7 @@ export default function JorgePage() {
         <Card>
           <SectionWrap>
             <SectionTitle>Experiencia</SectionTitle>
-            <div className="jorge-divider mt-3 pt-4 space-y-5">
+            <div className="plantilla-divider mt-3 pt-4 space-y-5">
               {experience.map((item) => (
                 <TimelineItem
                   key={`${item.company}-${item.role}`}
@@ -227,7 +227,7 @@ export default function JorgePage() {
         <Card>
           <SectionWrap>
             <SectionTitle>Habilidades</SectionTitle>
-            <div className="jorge-divider mt-3 pt-4 space-y-5">
+            <div className="plantilla-divider mt-3 pt-4 space-y-5">
               <div className="space-y-2">
                 <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--ink-300)]">
                   💼 Habilidades Profesionales
@@ -264,7 +264,7 @@ export default function JorgePage() {
         <Card className="md:col-span-2">
           <SectionWrap>
             <SectionTitle>Educación</SectionTitle>
-            <div className="jorge-divider mt-3 pt-4 space-y-5">
+            <div className="plantilla-divider mt-3 pt-4 space-y-5">
               {education.map((item) => (
                 <div key={`${item.school}-${item.title}`} className="space-y-2">
                   <h3 className="text-base font-semibold text-[color:var(--ink-100)]">{item.school}</h3>
@@ -282,7 +282,7 @@ export default function JorgePage() {
       </div>
 
       <footer className="pb-4 text-center text-xs text-[color:var(--text-dim)]">
-        Paleta azul Jorge · #021024 · #052659 · #C1E8FF
+        Paleta base · #021024 · #052659 · #C1E8FF (ajustá los colores en app/Plantilla/styles.css)
       </footer>
     </main>
   );

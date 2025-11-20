@@ -10,7 +10,9 @@ type TimelineItemProps = {
 
 export function TimelineItem({ title, subtitle, period, points, highlight = false }: TimelineItemProps) {
   return (
-    <div className={cn("jorge-timeline-item space-y-2", highlight && "jorge-timeline-item--highlight")}>
+    <div
+      className={cn("plantilla-timeline-item space-y-2", highlight && "plantilla-timeline-item--highlight")}
+    >
       <h3 className="text-lg font-semibold text-[color:var(--text-0)]">{title}</h3>
       <p className="text-sm text-[color:var(--text-dim)]">
         {subtitle} • {period}

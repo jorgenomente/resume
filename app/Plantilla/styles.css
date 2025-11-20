@@ -19,7 +19,7 @@
   --timeline-dot-shadow: 0 0 9px rgba(125, 160, 202, 0.55);
 }
 
-.jorge-theme {
+.plantilla-theme {
   min-height: 100vh;
   background-image:
     radial-gradient(ellipse at top, rgba(84, 131, 179, 0.25), transparent 60%),
@@ -29,7 +29,7 @@
   font-feature-settings: "liga" 1, "clig" 1;
 }
 
-.jorge-wrapper {
+.plantilla-wrapper {
   width: 100%;
   max-width: 56rem;
   margin: 0 auto;
@@ -37,18 +37,18 @@
 }
 
 @media (min-width: 768px) {
-  .jorge-wrapper {
+  .plantilla-wrapper {
     padding: 3.5rem 2.5rem 4.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .jorge-wrapper {
+  .plantilla-wrapper {
     padding: 4rem 0 5rem;
   }
 }
 
-.jorge-header {
+.plantilla-header {
   position: relative;
   overflow: hidden;
   border-radius: 24px;
@@ -58,7 +58,7 @@
   backdrop-filter: blur(24px);
 }
 
-.jorge-header::after {
+.plantilla-header::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -66,7 +66,7 @@
   pointer-events: none;
 }
 
-.jorge-card {
+.plantilla-card {
   background: var(--surface-card);
   border: 1px solid var(--surface-card-border);
   border-radius: 24px;
@@ -76,17 +76,17 @@
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.jorge-card:hover {
+.plantilla-card:hover {
   transform: translateY(-2px);
   border-color: var(--surface-card-border-hover);
   box-shadow: var(--shadow-card-hover);
 }
 
-.jorge-ring {
+.plantilla-ring {
   box-shadow: 0 0 0 1px rgba(84, 131, 179, 0.6), var(--shadow-avatar);
 }
 
-.jorge-button {
+.plantilla-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -103,13 +103,13 @@
   text-decoration: none;
 }
 
-.jorge-button:hover {
+.plantilla-button:hover {
   background: var(--ink-300);
   transform: translateY(-1px);
   box-shadow: 0 24px 40px rgba(125, 160, 202, 0.3);
 }
 
-.jorge-button--download {
+.plantilla-button--download {
   position: absolute;
   top: 0.85rem;
   left: 0.85rem;
@@ -120,7 +120,7 @@
 }
 
 @media (min-width: 640px) {
-  .jorge-button--download {
+  .plantilla-button--download {
     top: 1.15rem;
     left: 1.2rem;
     padding: 0.5rem 1.15rem;
@@ -128,19 +128,19 @@
   }
 }
 
-.jorge-button--secondary {
+.plantilla-button--secondary {
   background: transparent;
   border: 1px solid var(--ink-500);
   color: var(--ink-100);
   box-shadow: none;
 }
 
-.jorge-button--secondary:hover {
+.plantilla-button--secondary:hover {
   background: rgba(5, 38, 89, 0.55);
   color: var(--text-0);
 }
 
-.jorge-button--floating {
+.plantilla-button--floating {
   position: absolute;
   top: 0;
   right: 0;
@@ -151,23 +151,23 @@
 }
 
 @media (min-width: 640px) {
-  .jorge-button--floating {
+  .plantilla-button--floating {
     transform: translate(35%, -55%);
   }
 }
 
-.jorge-link {
+.plantilla-link {
   color: var(--ink-100);
   text-decoration: underline;
   text-underline-offset: 0.35em;
   transition: color 0.2s ease;
 }
 
-.jorge-link:hover {
+.plantilla-link:hover {
   color: var(--ink-300);
 }
 
-.jorge-badge {
+.plantilla-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -182,22 +182,22 @@
   transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
-.jorge-badge--highlight {
+.plantilla-badge--highlight {
   border-color: rgba(193, 232, 255, 0.8);
   background: var(--surface-chip-highlight);
   color: var(--text-0);
 }
 
-.jorge-divider {
+.plantilla-divider {
   border-top: 1px solid rgba(5, 38, 89, 0.55);
 }
 
-.jorge-timeline-item {
+.plantilla-timeline-item {
   position: relative;
   padding-left: 1.75rem;
 }
 
-.jorge-timeline-item::before {
+.plantilla-timeline-item::before {
   content: "";
   position: absolute;
   top: 0.5rem;
@@ -209,7 +209,7 @@
   box-shadow: var(--timeline-dot-shadow);
 }
 
-.jorge-timeline-item:not(:last-child)::after {
+.plantilla-timeline-item:not(:last-child)::after {
   content: "";
   position: absolute;
   top: 1.25rem;
@@ -219,7 +219,7 @@
   background: linear-gradient(180deg, rgba(125, 160, 202, 0.65), rgba(2, 16, 36, 0));
 }
 
-.jorge-timeline-item--highlight {
+.plantilla-timeline-item--highlight {
   border-radius: 20px;
   border: 1px solid rgba(193, 232, 255, 0.35);
   background: rgba(5, 38, 89, 0.4);
@@ -230,7 +230,7 @@ footer {
   color: rgba(215, 228, 242, 0.6);
 }
 
-body.jorge-print {
+body.plantilla-print {
   --ink-900: #ffffff;
   --ink-800: #f4f6fb;
   --ink-500: #1f3a5f;
@@ -256,18 +256,18 @@ body.jorge-print {
   print-color-adjust: exact;
 }
 
-body.jorge-print .jorge-theme {
+body.plantilla-print .plantilla-theme {
   background: #ffffff;
 }
 
-body.jorge-print .jorge-wrapper {
+body.plantilla-print .plantilla-wrapper {
   padding: 2.75rem 2.25rem 3rem;
 }
 
-body.jorge-print .jorge-button {
+body.plantilla-print .plantilla-button {
   display: none;
 }
 
-body.jorge-print footer {
+body.plantilla-print footer {
   color: #4b5563;
 }
