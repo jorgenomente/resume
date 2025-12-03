@@ -14,6 +14,7 @@ import {
   Users,
   MessageCircle
 } from "lucide-react";
+import profilePaola from "../IMG_7613.webp";
 
 export default function App() {
   const handleDownloadCV = () => {
@@ -38,8 +39,8 @@ export default function App() {
             <div className="order-2 md:order-1">
               <div className="aspect-[3/4] w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)]">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzYyOTkxNHww&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Paola Zerpa"
+                  src={profilePaola}
+                  alt="Paola Zerpa, diseñadora de procesos y sistemas"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -52,15 +53,14 @@ export default function App() {
                   Paola Zerpa
                 </h1>
                 <h2 className="text-xl md:text-2xl text-[var(--warm-gray)]">
-                  Diseñadora UX/UI & Estratega Digital
+                  Diseñadora de procesos y sistemas
                 </h2>
               </div>
 
               <p className="text-lg leading-relaxed text-[var(--warm-gray)] max-w-xl">
-                Combino diseño, sistemas y experiencia real en operaciones. 
-                Entiendo cómo funciona un negocio desde adentro —proveedores, stock, 
-                presupuesto, atención al público— y uso ese enfoque práctico para 
-                diseñar soluciones simples y funcionales.
+                Ordeno flujos, optimizo procesos y diseño sistemas que funcionan en la vida real. 
+                Vengo de operaciones reales —proveedores, stock, presupuestos, tareas diarias— 
+                y uso esa perspectiva para crear soluciones digitales claras, humanas y eficientes.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
@@ -102,7 +102,7 @@ export default function App() {
                   <div>
                     <h3 className="mb-1">Diseño UX/UI, prototipos y UI</h3>
                     <p className="text-sm text-[var(--warm-gray)]">
-                      Interfaces funcionales y visuales
+                      Interfaces funcionales, limpias y orientadas a claridad.
                     </p>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export default function App() {
                   <div>
                     <h3 className="mb-1">Arquitectura de información</h3>
                     <p className="text-sm text-[var(--warm-gray)]">
-                      Organización clara y navegable
+                      Estructuras navegables, rutas claras y contenidos organizados.
                     </p>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export default function App() {
                   <div>
                     <h3 className="mb-1">Análisis y mejora de procesos</h3>
                     <p className="text-sm text-[var(--warm-gray)]">
-                      Optimización operativa
+                      Identificación de fricciones y optimización operativa.
                     </p>
                   </div>
                 </div>
@@ -136,9 +136,9 @@ export default function App() {
                     <Archive className="h-5 w-5 text-[var(--dark-gray)]" />
                   </div>
                   <div>
-                    <h3 className="mb-1">Documentación y orden interno</h3>
+                    <h3 className="mb-1">Documentación y sistemas internos</h3>
                     <p className="text-sm text-[var(--warm-gray)]">
-                      Sistemas claros y escalables
+                      Procedimientos claros, replicables y escalables.
                     </p>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export default function App() {
                   <div>
                     <h3 className="mb-1">Gestión de stock y vencimientos</h3>
                     <p className="text-sm text-[var(--warm-gray)]">
-                      Control de inventario
+                      Control, orden y seguimiento real de inventario.
                     </p>
                   </div>
                 </div>
@@ -165,9 +165,9 @@ export default function App() {
                     <Users className="h-5 w-5 text-[var(--dark-gray)]" />
                   </div>
                   <div>
-                    <h3 className="mb-1">Seguimiento de proveedores</h3>
+                    <h3 className="mb-1">Relación con proveedores</h3>
                     <p className="text-sm text-[var(--warm-gray)]">
-                      Coordinación y relaciones
+                      Coordinación, pedidos y comunicación fluida.
                     </p>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function App() {
                   <div>
                     <h3 className="mb-1">Control de presupuesto</h3>
                     <p className="text-sm text-[var(--warm-gray)]">
-                      Administración financiera
+                      Administración, proyección y seguimiento financiero.
                     </p>
                   </div>
                 </div>
@@ -191,7 +191,7 @@ export default function App() {
                   <div>
                     <h3 className="mb-1">Atención al cliente y coordinación operativa</h3>
                     <p className="text-sm text-[var(--warm-gray)]">
-                      Gestión de equipos y comunicación
+                      Organización diaria, resolución de problemas y visión centrada en usuarios.
                     </p>
                   </div>
                 </div>
@@ -201,12 +201,25 @@ export default function App() {
         </div>
       </section>
 
+      {/* Micro editorial */}
+      <section className="py-10 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-lg md:text-xl text-[var(--warm-gray)]">
+            Procesos que se ordenan desde dentro.
+          </p>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-12 text-center">
             Proyectos seleccionados
           </h2>
+          <p className="text-lg text-[var(--warm-gray)] leading-relaxed text-center max-w-3xl mx-auto -mt-6 mb-10">
+            Trabajo en la intersección entre procesos reales, experiencia de usuario y sistemas digitales. 
+            Estos son algunos de mis proyectos recientes:
+          </p>
 
           <ProjectCarousel />
         </div>
@@ -222,7 +235,7 @@ export default function App() {
                 <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-[var(--beige)] p-1.5 shadow-[0_0_0_8px_rgba(255,255,255,0.8),0_8px_24px_rgb(0,0,0,0.08)]">
                   <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-white/50">
                     <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzYyOTkxNHww&ixlib=rb-4.1.0&q=80&w=1080"
+                      src={profilePaola}
                       alt="Paola Zerpa"
                       className="w-full h-full object-cover"
                     />
@@ -237,13 +250,22 @@ export default function App() {
               </h2>
               
               <p className="text-base md:text-lg text-[var(--warm-gray)] leading-relaxed max-w-xl mx-auto">
-                En este archivo vas a encontrar mi recorrido completo: experiencia en atención 
-                al público, gestión de stock y vencimientos, proveedores, administración y 
-                coordinación de equipos; además de mi camino en diseño, sistemas y organización.
+                En mi recorrido vas a encontrar experiencia en:
               </p>
+              <ul className="text-base md:text-lg text-[var(--warm-gray)] leading-relaxed max-w-xl mx-auto space-y-2 list-disc text-left pl-6">
+                <li>Atención al público</li>
+                <li>Gestión de stock y vencimientos</li>
+                <li>Administración y coordinación</li>
+                <li>Relación con proveedores</li>
+                <li>Documentación interna</li>
+                <li>UX/UI Design</li>
+                <li>Arquitectura de información</li>
+                <li>Diseño de procesos y sistemas</li>
+              </ul>
               
               <p className="text-base md:text-lg text-[var(--warm-gray)] leading-relaxed">
-                Todo en un solo lugar, claro y ordenado.
+                Trabajo desde un enfoque práctico y estructurado para crear soluciones claras, funcionales y humanas. 
+                Todo en un solo lugar, ordenado y fácil de revisar.
               </p>
               
               <div className="flex justify-center pt-4">
@@ -268,8 +290,8 @@ export default function App() {
           </h2>
           
           <p className="text-lg text-[var(--warm-gray)] leading-relaxed mb-8 max-w-2xl mx-auto">
-            Estoy creando proyectos, aprendiendo y trabajando en diseño, sistemas y operaciones. 
-            Si querés que colaboremos, te leo.
+            Estoy trabajando en UX/UI, sistemas y procesos. Si tenés una idea, un proyecto o querés 
+            conversar sobre cómo mejorar flujos internos, te leo.
           </p>
           
           <Button 
@@ -285,9 +307,10 @@ export default function App() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-[var(--border)]">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-sm text-[var(--warm-gray)]">
-            © 2024 Paola Zerpa. Diseñadora UX/UI & Estratega Digital.
+          <p className="text-lg text-[var(--warm-gray)] mb-2">
+            Somos formas en movimiento, diseñando nuestra luz desde dentro.*
           </p>
+          <p className="text-sm text-[var(--warm-gray)]">© 2024 Paola Zerpa. Diseñadora de procesos y sistemas.</p>
         </div>
       </footer>
     </div>

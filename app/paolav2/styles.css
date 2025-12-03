@@ -37,3 +37,19 @@ p {
 button {
   font: inherit;
 }
+
+@keyframes paolav2-download-press {
+  0% {
+    transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), 0) scale(1);
+  }
+  50% {
+    transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), 0) scale(0.97);
+  }
+  100% {
+    transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), 0) scale(1);
+  }
+}
+
+.paolav2-download-press {
+  animation: paolav2-download-press 220ms ease;
+}

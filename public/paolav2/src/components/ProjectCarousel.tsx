@@ -15,26 +15,58 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    tag: "UX/UI Design",
-    title: "HoyComo",
-    description: "App de alimentación saludable. Arquitectura de información, UI design y contenido editorial.",
-    image: "https://images.unsplash.com/photo-1685810332449-22666f83adf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZm9vZCUyMGFwcCUyMGRlc2lnbnxlbnwxfHx8fDE3NjM2NDM3NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    tag: "UX/UI & Systems",
+    title: "Cosmic St — UX/UI & Systems Design",
+    description: "En Cosmic Studio co-diseño experiencias digitales que conectan UX/UI, procesos y desarrollo. Transformo flujos desordenados en sistemas claros, interfaces intuitivas y documentación funcional para el equipo.",
+    image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
     tagColor: "bg-[var(--sage)]"
   },
   {
     id: 2,
-    tag: "UX Research & Redesign",
-    title: "GeStock",
-    description: "Rediseño UX/UI basado en operaciones reales de tienda: pagos, proveedores, carga y control.",
+    tag: "Product Design",
+    title: "MiProveedor — Plataforma B2B de pedidos, remitos y pagos",
+    description: "Definí propuesta de valor, arquitectura, userflows, UI Kit e identidad editorial. El sistema hoy permite a distribuidores y comercios trabajar con mayor claridad y orden.",
     image: "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwZGFzaGJvYXJkJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc2MzY0MTM2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
     tagColor: "bg-[var(--sand)]"
   },
   {
     id: 3,
+    tag: "Operations UX",
+    title: "Nodux — Sistema interno para proveedores y administración",
+    description: "Mapeé workflows reales, detecté fricciones y diseñé procesos más claros. Creé userflows, wireframes, UI y documentación operativa coherente (SOPs). Mejoró la operación diaria y redujo errores.",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80",
+    tagColor: "bg-[var(--sage)]"
+  },
+  {
+    id: 4,
     tag: "Visual Identity",
-    title: "AURA",
-    description: "Identidad visual para tienda saludable. Moodboard, concepto y diseño visual.",
+    title: "AURO — Visual Direction & Retail UX",
+    description: "Diseñé identidad visual, paleta, moodboard, storytelling y piezas gráficas. Integré branding + UX para e-commerce y local físico. Una marca premium lista para implementación real.",
     image: "https://images.unsplash.com/photo-1727755868081-c25d2b427ce3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwYnJhbmRpbmclMjBpZGVudGl0eXxlbnwxfHx8fDE3NjM1ODEzNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    tagColor: "bg-[var(--sand)]"
+  },
+  {
+    id: 5,
+    tag: "App UX/UI",
+    title: "HoyComo — App de alimentación saludable",
+    description: "Realicé investigación, arquitectura, userflows, wireframes, UI Kit y prototipos validados. Creé una experiencia clara para usuarios con rutinas intensas.",
+    image: "https://images.unsplash.com/photo-1685810332449-22666f83adf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZm9vZCUyMGFwcCUyMGRlc2lnbnxlbnwxfHx8fDE3NjM2NDM3NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    tagColor: "bg-[var(--sage)]"
+  },
+  {
+    id: 6,
+    tag: "Editorial Design",
+    title: "Pulso — Libretas de journaling y crecimiento personal",
+    description: "Diseñé identidad, narrativa, portadas, sistema editorial y prototipos del producto. Una marca emocional que integra estética clean + bienestar.",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    tagColor: "bg-[var(--sand)]"
+  },
+  {
+    id: 7,
+    tag: "Product Strategy",
+    title: "Pew — Finanzas personales y compartidas",
+    description: "Desarrollé arquitectura, userflows, wireframes, UI y microcopy. Definí la base conceptual y visual para avanzar hacia el MVP.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     tagColor: "bg-[var(--sage)]"
   }
 ];

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type Project = {
@@ -15,38 +15,76 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
-    tag: "UX/UI Design",
-    title: "HoyComo",
+    tag: "UX/UI & Systems Design",
+    title: "Cosmic Studio",
     description:
-      "App de alimentación saludable. Arquitectura de información, UI design y contenido editorial.",
-    image:
-      "https://images.unsplash.com/photo-1685810332449-22666f83adf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZm9vZCUyMGFwcCUyMGRlc2lnbnxlbnwxfHx8fDE3NjM2NDM3NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "Experiencias digitales que integran UX/UI, procesos y desarrollo. Sistemas claros, interfaces intuitivas y documentación funcional para equipos reales.",
+    image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
     tagColor: "sage",
   },
   {
     id: 2,
-    tag: "UX Research & Redesign",
-    title: "GeStock",
+    tag: "Product Design",
+    title: "MiProveedor",
     description:
-      "Rediseño UX/UI basado en operaciones reales de tienda: pagos, proveedores, carga y control.",
+      "Plataforma B2B para pedidos, remitos y pagos. Arquitectura, userflows, UI Kit e identidad editorial para un sistema claro y escalable.",
     image:
       "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwZGFzaGJvYXJkJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc2MzY0MTM2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
     tagColor: "sand",
   },
   {
     id: 3,
-    tag: "Visual Identity",
-    title: "AURA",
+    tag: "UX/UI & Process Design",
+    title: "Nodux",
     description:
-      "Identidad visual para tienda saludable. Moodboard, concepto y diseño visual.",
+      "Sistema interno para proveedores y administración. Mapeo real de workflows, optimización de procesos y UI funcional para operación diaria.",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80",
+    tagColor: "sand",
+  },
+  {
+    id: 4,
+    tag: "Visual Identity & Retail UX",
+    title: "AURO",
+    description:
+      "Identidad visual y dirección de arte para tienda saludable premium. Branding, storytelling, e-commerce y experiencia en local físico.",
     image:
       "https://images.unsplash.com/photo-1727755868081-c25d2b427ce3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwYnJhbmRpbmclMjBpZGVudGl0eXxlbnwxfHx8fDE3NjM1ODEzNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    tagColor: "sand",
+  },
+  {
+    id: 5,
+    tag: "UX/UI Design",
+    title: "HoyComo",
+    description:
+      "App de alimentación saludable. Investigación, arquitectura de información, UI Design y contenido editorial.",
+    image:
+      "https://images.unsplash.com/photo-1685810332449-22666f83adf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZm9vZCUyMGFwcCUyMGRlc2lnbnxlbnwxfHx8fDE3NjM2NDM3NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    tagColor: "sage",
+  },
+  {
+    id: 6,
+    tag: "Brand & Editorial Design",
+    title: "Pulso",
+    description:
+      "Identidad visual y narrativa para libretas de journaling. Paleta, sistema editorial, portadas y prototipos físico–digital.",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    tagColor: "sand",
+  },
+  {
+    id: 7,
+    tag: "UX/UI for Finance",
+    title: "Pew",
+    description:
+      "Diseño de arquitectura, userflows, wireframes, UI y microcopy emocional para finanzas personales y compartidas.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     tagColor: "sage",
   },
 ];
 
 export function ProjectCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const wheelTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wheelLockedRef = useRef(false);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % projects.length);
@@ -60,9 +98,39 @@ export function ProjectCarousel() {
     setCurrentSlide(index);
   }, []);
 
+  const handleWheel = useCallback(
+    (event: React.WheelEvent<HTMLDivElement>) => {
+      const deltaX = event.deltaX;
+      if (Math.abs(deltaX) < 15) return; // ignore vertical or tiny scroll
+
+      event.preventDefault();
+      if (wheelLockedRef.current) return;
+      wheelLockedRef.current = true;
+
+      if (deltaX > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+
+      wheelTimeoutRef.current = setTimeout(() => {
+        wheelLockedRef.current = false;
+      }, 400);
+    },
+    [nextSlide, prevSlide]
+  );
+
+  useEffect(() => {
+    return () => {
+      if (wheelTimeoutRef.current) {
+        clearTimeout(wheelTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="relative w-full py-8">
-      <div className="relative h-[600px] md:h-[650px] overflow-hidden">
+    <div className="relative w-full py-8" onWheel={handleWheel}>
+      <div className="relative h-[720px] md:h-[760px] overflow-hidden">
         {projects.map((project, index) => {
           const diff = index - currentSlide;
           const isActive = diff === 0;

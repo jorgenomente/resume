@@ -4,7 +4,7 @@ export const profile = {
   meta: "Buenos Aires, Argentina · Inglés avanzado",
   descriptor: "Ventas · Operaciones · IA aplicada a procesos",
   summary:
-    "Profesional en formación que combina gestión operativa, ventas y marketing digital con el uso estratégico de la Inteligencia Artificial para optimizar procesos y crear soluciones digitales escalables. Co-creador del sistema GeStock, una plataforma desarrollada con IA para la gestión de stock, proveedores y pagos. Me destaco por mi enfoque analítico, capacidad de organización y visión tecnológica aplicada a la mejora continua.",
+    "Profesional en formación con experiencia en tareas administrativas: carga y organización de facturas, gestión documental, seguimiento de pagos y comunicación con proveedores. Aporto orden, criterio operativo y capacidad de gestionar información con exactitud. Además, complemento este perfil con habilidades en marketing digital y el uso de herramientas tecnológicas e IA para mejorar la eficiencia de los procesos internos.",
   location: "Buenos Aires, Argentina",
   links: [
     { label: "Instagram", href: "https://instagram.com/jorgenomente" },
@@ -24,11 +24,11 @@ type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     company: "Tienda Nova Caballito",
-    role: "Coordinador de Ventas y Operaciones",
-    period: "2023 – Actualidad",
+    role: "Coordinador de Ventas, Operaciones y Administración",
+    period: "2025",
     points: [
-      "Organización de pedidos, control de stock y coordinación con proveedores.",
-      "Implementación de GeStock, sistema de gestión interna asistido por IA para automatizar pedidos, vencimientos y pagos.",
+      "Gestión administrativa de proveedores: carga, digitalización y organización de facturas; registro de notas de crédito; seguimiento de pagos y envío de comprobantes.",
+      "Coordinación integral de pedidos y stock, manteniendo actualizados los registros internos y garantizando la disponibilidad de productos.",
       "Análisis de datos operativos para mejorar tiempos y reducir errores.",
       "Comunicación con clientes y optimización de la experiencia en tienda.",
     ],
