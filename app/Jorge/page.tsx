@@ -145,6 +145,22 @@ export default function JorgePage() {
               <p className="text-lg text-[color:var(--ink-300)] md:text-xl">{profile.role}</p>
               <p className="text-sm font-medium text-[color:var(--ink-100)] opacity-80 md:text-base">{profile.descriptor}</p>
             </div>
+            <div className="flex flex-wrap gap-3">
+              {profile.links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="jorge-button jorge-button--secondary"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a href="/CV%20-%20Jorge%20Pulido.pdf" download="CV - Jorge Pulido.pdf" className="jorge-button">
+                Descargar CV
+              </a>
+            </div>
             <div className="flex flex-wrap gap-4 text-sm">
               <a
                 href="mailto:jorgenomente@gmail.com"
@@ -162,17 +178,6 @@ export default function JorgePage() {
                 <span aria-hidden="true">📞</span>
                 <span>+54 11 2772 5677</span>
               </a>
-              {profile.links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[color:var(--ink-100)] transition-colors hover:text-[color:var(--ink-300)]"
-                >
-                  {link.label}
-                </a>
-              ))}
             </div>
           </div>
           <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl border border-[color:var(--ink-500)]/40 bg-[rgba(2,16,36,0.6)] jorge-ring sm:h-32 sm:w-32 md:h-40 md:w-40">
