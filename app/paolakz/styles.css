@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&family=Work+Sans:wght@400;500&family=Lora:ital,wght@1,500&family=Dancing+Script:wght@400&display=swap");
+
+.paolakz-page {
+  font-family: "Work Sans", sans-serif;
+  background-color: #f4efe4;
+  color: #0e1a2b;
+}
+
+.paolakz-page h1,
+.paolakz-page h2,
+.paolakz-page h3,
+.paolakz-page h4,
+.paolakz-page h5,
+.paolakz-page h6 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+}
+
+/* Responsive typography */
+.paolakz-page h1 {
+  font-size: 1.75rem;
+  line-height: 1.1;
+}
+
+.paolakz-page h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.paolakz-page h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.paolakz-page p {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .paolakz-page h1 {
+    font-size: 2.5rem;
+  }
+
+  .paolakz-page h2 {
+    font-size: 2rem;
+  }
+
+  .paolakz-page h3 {
+    font-size: 1.375rem;
+  }
+
+  .paolakz-page p {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1200px) {
+  .paolakz-page h1 {
+    font-size: 3.5rem;
+  }
+
+  .paolakz-page h2 {
+    font-size: 2.5rem;
+  }
+
+  .paolakz-page h3 {
+    font-size: 1.5rem;
+  }
+
+  .paolakz-page p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+.paolakz-page .accent-text {
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@keyframes paolakz-fadeInBlur {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paolakz-page *,
+  .paolakz-page *::before,
+  .paolakz-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  @keyframes paolakz-fadeInBlur {
+    0%,
+    100% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+}
