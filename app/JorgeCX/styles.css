@@ -1,0 +1,273 @@
+:root {
+  --ink-900: #021024;
+  --ink-800: #052659;
+  --ink-500: #5483b3;
+  --ink-300: #7da0ca;
+  --ink-100: #c1e8ff;
+  --text-0: #f7fafc;
+  --text-dim: #dce6f3;
+  --surface-card: rgba(2, 16, 36, 0.68);
+  --surface-card-hover: rgba(5, 38, 89, 0.62);
+  --surface-card-border: rgba(5, 38, 89, 0.68);
+  --surface-card-border-hover: rgba(84, 131, 179, 0.6);
+  --surface-chip: rgba(5, 38, 89, 0.78);
+  --surface-chip-highlight: rgba(193, 232, 255, 0.26);
+  --shadow-card: 0 26px 50px rgba(2, 16, 36, 0.34);
+  --shadow-card-hover: 0 32px 55px rgba(5, 38, 89, 0.4);
+  --shadow-button: 0 18px 32px rgba(5, 38, 89, 0.3);
+  --shadow-avatar: 0 18px 40px rgba(2, 16, 36, 0.4);
+  --timeline-dot-shadow: 0 0 9px rgba(125, 160, 202, 0.55);
+}
+
+.jorge-theme {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at top, rgba(84, 131, 179, 0.25), transparent 60%),
+    linear-gradient(to bottom, var(--ink-900), var(--ink-800));
+  color: var(--text-0);
+  font-family: "Inter", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "liga" 1, "clig" 1;
+}
+
+.jorge-wrapper {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+@media (min-width: 768px) {
+  .jorge-wrapper {
+    padding: 3.5rem 2.5rem 4.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .jorge-wrapper {
+    padding: 4rem 0 5rem;
+  }
+}
+
+.jorge-header {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(84, 131, 179, 0.4);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(24px);
+}
+
+.jorge-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: none;
+  pointer-events: none;
+}
+
+.jorge-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-card-border);
+  border-radius: 24px;
+  padding: clamp(1.6rem, 1.5rem + 1vw, 2.1rem);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(18px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jorge-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--surface-card-border-hover);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.jorge-ring {
+  box-shadow: 0 0 0 1px rgba(84, 131, 179, 0.6), var(--shadow-avatar);
+}
+
+.jorge-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.45rem;
+  border-radius: 0.9rem;
+  background: var(--ink-500);
+  color: var(--text-0);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  box-shadow: var(--shadow-button);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.jorge-button:hover {
+  background: var(--ink-300);
+  transform: translateY(-1px);
+  box-shadow: 0 24px 40px rgba(125, 160, 202, 0.3);
+}
+
+.jorge-button--download {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 10;
+  padding: 0.45rem 1.05rem;
+  font-size: 0.82rem;
+  border-radius: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .jorge-button--download {
+    top: 1.15rem;
+    left: 1.2rem;
+    padding: 0.5rem 1.15rem;
+    font-size: 0.85rem;
+  }
+}
+
+.jorge-button--secondary {
+  background: transparent;
+  border: 1px solid var(--ink-500);
+  color: var(--ink-100);
+  box-shadow: none;
+}
+
+.jorge-button--secondary:hover {
+  background: rgba(5, 38, 89, 0.55);
+  color: var(--text-0);
+}
+
+.jorge-button--floating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(15%, -55%);
+  font-size: 0.85rem;
+  padding: 0.55rem 1.2rem;
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .jorge-button--floating {
+    transform: translate(35%, -55%);
+  }
+}
+
+.jorge-link {
+  color: var(--ink-100);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+  transition: color 0.2s ease;
+}
+
+.jorge-link:hover {
+  color: var(--ink-300);
+}
+
+.jorge-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(84, 131, 179, 0.4);
+  background: var(--surface-chip);
+  color: var(--ink-100);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.jorge-badge--highlight {
+  border-color: rgba(193, 232, 255, 0.8);
+  background: var(--surface-chip-highlight);
+  color: var(--text-0);
+}
+
+.jorge-divider {
+  border-top: 1px solid rgba(5, 38, 89, 0.55);
+}
+
+.jorge-timeline-item {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.jorge-timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: var(--ink-100);
+  box-shadow: var(--timeline-dot-shadow);
+}
+
+.jorge-timeline-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  left: 0.32rem;
+  width: 1px;
+  height: calc(100% - 1.1rem);
+  background: linear-gradient(180deg, rgba(125, 160, 202, 0.65), rgba(2, 16, 36, 0));
+}
+
+.jorge-timeline-item--highlight {
+  border-radius: 20px;
+  border: 1px solid rgba(193, 232, 255, 0.35);
+  background: rgba(5, 38, 89, 0.4);
+  padding: 1.1rem 1.25rem 1.1rem 2rem;
+}
+
+footer {
+  color: rgba(215, 228, 242, 0.6);
+}
+
+body.jorge-print {
+  --ink-900: #ffffff;
+  --ink-800: #f4f6fb;
+  --ink-500: #1f3a5f;
+  --ink-300: #3f5f8a;
+  --ink-100: #0f172a;
+  --text-0: #111827;
+  --text-dim: #4b5563;
+  --surface-card: #ffffff;
+  --surface-card-hover: #ffffff;
+  --surface-card-border: rgba(148, 163, 184, 0.5);
+  --surface-card-border-hover: rgba(37, 99, 235, 0.35);
+  --surface-chip: rgba(15, 23, 42, 0.08);
+  --surface-chip-highlight: rgba(15, 23, 42, 0.12);
+  --shadow-card: none;
+  --shadow-card-hover: none;
+  --shadow-button: none;
+  --shadow-avatar: none;
+  --timeline-dot-shadow: none;
+
+  background: #ffffff;
+  color: var(--text-0);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body.jorge-print .jorge-theme {
+  background: #ffffff;
+}
+
+body.jorge-print .jorge-wrapper {
+  padding: 2.75rem 2.25rem 3rem;
+}
+
+body.jorge-print .jorge-button {
+  display: none;
+}
+
+body.jorge-print footer {
+  color: #4b5563;
+}
