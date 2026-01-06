@@ -1,0 +1,6 @@
+Files exported from Figma (placeholder):
+- avatar.svg (simple placeholder avatar with initials)
+- hero-bg.svg (background gradients)
+- pp-logo.svg (wordmark)
+
+Replace these with full Figma exports if you want exact assets: colors, icons, and photos. I added them to public/paola-portfolio/ for the page to use.

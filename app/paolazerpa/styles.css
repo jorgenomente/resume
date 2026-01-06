@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
+
+.paolazerpa-page {
+  background: #f6f1e7;
+  color: #13293d;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.paolazerpa-page img {
+  max-width: 100%;
+  display: block;
+}

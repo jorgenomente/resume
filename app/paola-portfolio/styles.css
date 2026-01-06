@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+.paola-portfolio-page {
+  min-height: 100vh;
+  background: #fafaf8;
+  color: #2a2a2a;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.paola-portfolio-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.paola-portfolio-page label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.container-portfolio {
+  max-width: 1216px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container-portfolio {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .container-portfolio {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.section-spacing {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .section-spacing {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.transition-smooth {
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-hover {
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
