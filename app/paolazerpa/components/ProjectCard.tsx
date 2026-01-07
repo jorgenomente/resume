@@ -12,6 +12,7 @@ interface ProjectCardProps {
   impact: string;
   image: string;
   keyDecision: string;
+  href?: string;
   delay?: number;
 }
 
@@ -23,6 +24,7 @@ export function ProjectCard({
   impact,
   image,
   keyDecision,
+  href,
   delay = 0,
 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -40,7 +42,7 @@ export function ProjectCard({
       <motion.div
         whileHover={{ y: -8 }}
         transition={{ duration: 0.3 }}
-        className="relative bg-gradient-to-br from-[rgba(19,41,61,0.2)] to-[rgba(19,41,61,0.1)] backdrop-blur-md border border-[#f6f1e7]/20 rounded-2xl overflow-hidden h-full"
+        className="relative bg-gradient-to-br from-[rgba(19,41,61,0.2)] to-[rgba(19,41,61,0.1)] backdrop-blur-md border border-[#f6f1e7]/20 rounded-2xl overflow-hidden h-full flex flex-col"
       >
         <div className="p-6 pb-4">
           <div className="flex flex-col items-center text-center gap-2 mb-4">
@@ -58,8 +60,19 @@ export function ProjectCard({
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
-            <img src={image} alt={title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {href ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="block h-full w-full"
+              >
+                <img src={image} alt={title} className="w-full h-full object-cover" />
+              </a>
+            ) : (
+              <img src={image} alt={title} className="w-full h-full object-cover" />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
             <AnimatePresence>
               {isExpanded && (
@@ -87,16 +100,29 @@ export function ProjectCard({
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="bg-gradient-to-br from-[#f47dcf] to-[#c7b9ff] rounded-full p-3 shadow-lg cursor-pointer">
-              <ArrowUpRight className="w-5 h-5 text-[#13293d]" />
-            </div>
-            <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-['Space_Mono'] text-[#13293d]">
-              Ver caso
-            </span>
+            {href ? (
+              <a href={href} target="_blank" rel="noreferrer">
+                <div className="bg-gradient-to-br from-[#f47dcf] to-[#c7b9ff] rounded-full p-3 shadow-lg cursor-pointer">
+                  <ArrowUpRight className="w-5 h-5 text-[#13293d]" />
+                </div>
+                <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-['Space_Mono'] text-[#13293d]">
+                  Ver caso
+                </span>
+              </a>
+            ) : (
+              <>
+                <div className="bg-gradient-to-br from-[#f47dcf] to-[#c7b9ff] rounded-full p-3 shadow-lg cursor-pointer">
+                  <ArrowUpRight className="w-5 h-5 text-[#13293d]" />
+                </div>
+                <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-['Space_Mono'] text-[#13293d]">
+                  Ver caso
+                </span>
+              </>
+            )}
           </motion.div>
         </div>
 
-        <div className="p-6 pt-8 space-y-4">
+        <div className="p-6 pt-8 flex-1 flex flex-col gap-4">
           <p className="font-['Space_Mono'] text-base text-[#13293d] leading-relaxed">
             {description}
           </p>
@@ -112,7 +138,7 @@ export function ProjectCard({
         </div>
 
         <motion.div
-          className="bg-[#f6f1e7] p-4 flex items-center gap-3 border-t border-[#f47dcf]/20"
+          className="bg-[#f6f1e7] p-4 flex items-center gap-3 border-t border-[#f47dcf]/20 min-h-[72px]"
           whileHover={{ backgroundColor: "#fff" }}
           transition={{ duration: 0.2 }}
         >

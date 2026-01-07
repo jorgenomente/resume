@@ -28,7 +28,7 @@ export function MethodStepSequential({
       transition={{ duration: 0.4 }}
       className="relative"
     >
-      {index < 3 && (
+      {index <= 3 && (
         <motion.div
           className="absolute left-4 top-16 bottom-0 w-0.5"
           initial={{ backgroundColor: "rgba(244, 125, 207, 0.2)" }}

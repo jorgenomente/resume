@@ -82,8 +82,8 @@ export default function PaolaZerpaPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#f47dcf] to-[#c7b9ff] rounded-full animate-pulse" />
                 <Sun className="absolute inset-0 m-auto w-5 h-5 text-[#13293d]" />
               </div>
-              <span className="font-['Space_Grotesk'] text-[#f6f1e7] text-sm hidden sm:block">
-                Criterio · Uso real
+              <span className="font-['Space_Grotesk'] text-[#f47dcf] text-sm">
+                Claridad • Experiencia
               </span>
             </motion.div>
 
@@ -178,13 +178,18 @@ export default function PaolaZerpaPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-['Space_Grotesk'] font-medium text-4xl sm:text-5xl lg:text-6xl text-[#13293d] leading-tight mb-8 tracking-tight"
+            className="font-['Space_Grotesk'] font-medium text-[32px] sm:text-5xl lg:text-6xl text-[#13293d] leading-tight mb-8 tracking-tight"
           >
-            Diseño productos y sistemas digitales
-            <br />
-            para simplificar decisiones
-            <br />
-            y mejorar la ejecución
+            <span className="block sm:hidden">Diseño para</span>
+            <span className="block sm:hidden">escalar sin caos</span>
+            <span className="block sm:hidden">y reducir errores</span>
+            <span className="hidden sm:inline">
+              Diseño para
+              <br />
+              escalar sin caos
+              <br />
+              y reducir errores.
+            </span>
           </motion.h1>
 
           <motion.div
@@ -195,8 +200,9 @@ export default function PaolaZerpaPage() {
           >
             <p className="font-['Space_Grotesk'] font-medium text-lg text-[#13293d] mb-1">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f47dcf] to-[#c7b9ff]">
-                Sistemas, procesos y comunicación{" "}
+                Sistemas, procesos y comunicación
               </span>
+              <br />
               <span>para uso real.</span>
             </p>
           </motion.div>
@@ -272,6 +278,7 @@ export default function PaolaZerpaPage() {
               impact="Seguimiento semanal más claro y más autonomía del equipo."
               keyDecision="Centralizar información dispersa para eliminar búsqueda manual y decisiones repetitivas."
               image={imgFrame484}
+              href="https://nodux1.vercel.app/demo/dashboard"
               delay={0}
             />
 
@@ -287,6 +294,7 @@ export default function PaolaZerpaPage() {
               impact="Menos ambigüedad. Decisiones más claras."
               keyDecision="Priorizar claridad sobre completitud: decir lo justo para que la persona actúe sin dudar."
               image={imgFrame485}
+              href="https://www.figma.com/design/hutgtwWXVYPlikjgJ6rXom/Microcopys?node-id=0-1&t=3xAQzwuZDadC4K1V-1"
               delay={0.1}
             />
 
@@ -302,6 +310,7 @@ export default function PaolaZerpaPage() {
               impact="Mejor primera impresión y más intención de contacto."
               keyDecision="Crear sistema visual que refuerza jerarquía y reduce decisiones de diseño futuras."
               image={imgFrame486}
+              href="https://www.figma.com/design/og12a23torttMtN5M46gmz/Branding?t=3xAQzwuZDadC4K1V-1"
               delay={0.2}
             />
           </div>
@@ -337,10 +346,11 @@ export default function PaolaZerpaPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="mt-8 relative rounded-2xl overflow-hidden shadow-2xl"
                 >
-                  <img
-                    src={imgProfile}
-                    alt="Proceso de trabajo"
+                    <img
+                      src={imgProfile}
+                      alt="Proceso de trabajo"
                     className="w-full h-64 object-cover"
+                    style={{ objectPosition: "50% 30%" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#13293d]/60 to-transparent" />
                 </motion.div>
@@ -559,6 +569,7 @@ export default function PaolaZerpaPage() {
               features="Observamos cómo se vive el trabajo en la práctica para detectar: dónde se piensa de más, qué decisiones faltan, qué está generando desgaste."
               items={["Análisis del problema", "Diagnóstico claro", "Prioridades"]}
               cta="Quiero un audit"
+              ctaHref="https://wa.me/message/GZH5BQEALJNCL1"
               icon={Target}
               delay={0}
             />
@@ -570,6 +581,7 @@ export default function PaolaZerpaPage() {
               features="Trabajamos sobre flujos, sistemas y comunicación para el día a día: menos urgencias, menos centralización, más claridad para ejecutar."
               items={["Flujos claros", "Sistemas livianos", "Comunicación operativa"]}
               cta="Cómo trabajamos"
+              ctaHref="https://wa.me/message/GZH5BQEALJNCL1"
               icon={Settings}
               delay={0.1}
             />
@@ -581,6 +593,7 @@ export default function PaolaZerpaPage() {
               features="Nos concentramos en analizar, diseñar y ordenar un punto crítico: foco total, decisiones claras, solución concreta."
               items={["Análisis", "Rediseño", "Sistema completo"]}
               cta="Quiero un sprint"
+              ctaHref="https://wa.me/message/GZH5BQEALJNCL1"
               icon={Target}
               delay={0.2}
             />

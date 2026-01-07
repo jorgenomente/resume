@@ -12,6 +12,7 @@ interface ServiceCardCollapsibleProps {
   features: string;
   items: string[];
   cta: string;
+  ctaHref: string;
   icon: LucideIcon;
   isRecommended?: boolean;
   delay?: number;
@@ -24,6 +25,7 @@ export function ServiceCardCollapsible({
   features,
   items,
   cta,
+  ctaHref,
   icon: Icon,
   isRecommended = false,
   delay = 0,
@@ -36,7 +38,7 @@ export function ServiceCardCollapsible({
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay }}
-      className="relative group"
+      className="relative group h-full"
     >
       {isRecommended && (
         <motion.div
@@ -54,7 +56,7 @@ export function ServiceCardCollapsible({
           scale: isRecommended ? 1.02 : 1,
         }}
         transition={{ duration: 0.3 }}
-        className={`relative bg-gradient-to-br from-[rgba(19,41,61,0.7)] to-[rgba(19,41,61,0.4)] backdrop-blur-sm rounded-2xl overflow-hidden border shadow-lg transition-all duration-300 ${
+        className={`relative bg-gradient-to-br from-[rgba(19,41,61,0.7)] to-[rgba(19,41,61,0.4)] backdrop-blur-sm rounded-2xl overflow-hidden border shadow-lg transition-all duration-300 flex flex-col h-full ${
           isRecommended
             ? "border-[#f47dcf] shadow-2xl shadow-[#f47dcf]/20"
             : "border-[#f47dcf]/20 hover:border-[#f47dcf]/40"
@@ -148,8 +150,11 @@ export function ServiceCardCollapsible({
           </AnimatePresence>
         </div>
 
-        <div className="px-6 pb-6">
-          <motion.button
+        <div className="px-6 pb-6 mt-auto">
+          <motion.a
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="w-full bg-gradient-to-r from-[#f47dcf] to-[#c7b9ff] text-[#13293d] py-3 rounded-full font-['Space_Mono'] text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
@@ -158,7 +163,7 @@ export function ServiceCardCollapsible({
             <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
               →
             </motion.span>
-          </motion.button>
+          </motion.a>
         </div>
 
         <div
